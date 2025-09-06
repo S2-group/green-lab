@@ -1,4 +1,4 @@
-EX 1 - Setup and Run Example
+#EX 1 - Setup and Run Example
 ## Setting Up Your Environment
 
 ### [Experiment Runner](https://github.com/S2-group/experiment-runner/tree/master)
