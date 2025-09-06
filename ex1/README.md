@@ -10,10 +10,12 @@ Experiment Runner is a generic framework to automatically execute measurement-ba
 
 **Note**: *It is good practice to use separate virtual envrionments for different (Python) projects. Do this is you find any errors setting up / running **Experiment Runner**. If you have never worked with virtual environments in Python, check [venv](https://docs.python.org/3/library/venv.html) or [miniconda](https://docs.anaconda.com/miniconda/).*
 
-**Step 3:** Check if the example program ran correctly (i.e., no errors), run hello world example:
+**Step 3:** Check if the example program ran correctly (i.e., no errors), this example serves as an equivalent of a "Hello World" program, run:
 ```
 python experiment-runner/ examples/hello-world/RunnerConfig.py
 ```
+
+The results are generated in the `examples/hello-world/experiments` folder.
 
 ### 2. [EnergiBridge](https://github.com/tdurieux/EnergiBridge)
 Energibridge is a cross-platform energy measurement utility that provides support for Linux, Windows, and MacOS, as well as Intel, AMD, and Apple ARM CPU architectures.
