@@ -1,21 +1,21 @@
-# EX 1 - Setup and Run Example
+# EX 1 - Setup and Run Examples
 ## Setting Up Your Environment
 
-### [Experiment Runner](https://github.com/S2-group/experiment-runner/tree/master)
+### 1. [Experiment Runner](https://github.com/S2-group/experiment-runner/tree/master)
 Experiment Runner is a generic framework to automatically execute measurement-based experiments on any platform. The experiments are user-defined, can be completely customized, and expressed in python code!
 
 **Step 1:** Fork [the repo](https://github.com/S2-group/experiment-runner/tree/master) and **clone the fork** to your computer.
 
 **Step 2:** Follow the installation instructions [here](https://github.com/S2-group/experiment-runner/tree/master)
 
-**Note**: *It is good practice to use separate virtual envrionments for different (Python) projects. Do this is you find any errors setting up / running **Experiment Runner**. If you have never worked with virtual environments in Python check [venv](https://docs.python.org/3/library/venv.html) or [miniconda](https://docs.anaconda.com/miniconda/).*
+**Note**: *It is good practice to use separate virtual envrionments for different (Python) projects. Do this is you find any errors setting up / running **Experiment Runner**. If you have never worked with virtual environments in Python, check [venv](https://docs.python.org/3/library/venv.html) or [miniconda](https://docs.anaconda.com/miniconda/).*
 
 **Step 3:** Check if the example program ran correctly (i.e., no errors), run hello world example:
 ```
 python experiment-runner/ examples/hello-world/RunnerConfig.py
 ```
 
-### [EnergiBridge](https://github.com/tdurieux/EnergiBridge)
+### 2. [EnergiBridge](https://github.com/tdurieux/EnergiBridge)
 Energibridge is a cross-platform energy measurement utility that provides support for Linux, Windows, and MacOS, as well as Intel, AMD, and Apple ARM CPU architectures.
 
 **Step 1:** Follow the installation instructions for your platform from the [EnergiBrigde repo](https://github.com/tdurieux/EnergiBridge?tab=readme-ov-file#install).
