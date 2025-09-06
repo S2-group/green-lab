@@ -6,7 +6,7 @@ Experiment Runner is a generic framework to automatically execute measurement-ba
 
 **Step 1:** Fork [the repo](https://github.com/S2-group/experiment-runner/tree/master) and **clone the fork** to your computer.
 
-**Step 2:** Follow the installation instructions [here](https://github.com/S2-group/experiment-runner/tree/master)
+**Step 2:** Follow the installation instructions [here](https://github.com/S2-group/experiment-runner/tree/master), if you have multiple python versions, please activate the version >=3.8 in advance.
 
 **Note**: *It is good practice to use separate virtual envrionments for different (Python) projects. Do this is you find any errors setting up / running **Experiment Runner**. If you have never worked with virtual environments in Python, check [venv](https://docs.python.org/3/library/venv.html) or [miniconda](https://docs.anaconda.com/miniconda/).*
 
