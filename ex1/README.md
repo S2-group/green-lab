@@ -4,18 +4,18 @@
 ### 1. [Experiment Runner](https://github.com/S2-group/experiment-runner/tree/master)
 Experiment Runner is a generic framework to automatically execute measurement-based experiments on any platform. The experiments are user-defined, can be completely customized, and expressed in python code!
 
-**Step 1:** Fork [the repo](https://github.com/S2-group/experiment-runner/tree/master) and **clone the fork** to your computer.
+**Step 1- Fork and clone**: fork [the repo](https://github.com/S2-group/experiment-runner/tree/master) and **clone the fork** to your computer.
 
-**Step 2:** Follow the installation instructions [here](https://github.com/S2-group/experiment-runner/tree/master), if you have multiple python versions, please activate the version >=3.8 in advance.
+**Step 2- Install**: if you have multiple python versions, please activate the version >=3.8 in advance. Follow the installation instructions [here](https://github.com/S2-group/experiment-runner/tree/master), 
 
 **Note**: *It is good practice to use separate virtual envrionments for different (Python) projects. Do this is you find any errors setting up / running **Experiment Runner**. If you have never worked with virtual environments in Python, check [venv](https://docs.python.org/3/library/venv.html) or [miniconda](https://docs.anaconda.com/miniconda/).*
 
-**Step 3:** Check if the example program ran correctly (i.e., no errors), this example serves as an equivalent of a "Hello World" program, run:
+**Step 3-Run example**: check if the example program ran correctly (i.e., no errors), this example serves as an equivalent of a "Hello World" program, run:
 ```
 python experiment-runner/ examples/hello-world/RunnerConfig.py
 ```
 
-The results are generated in the `examples/hello-world/experiments` folder.
+The results are generated in the `examples/hello-world/experiments` folder. It should be named as `new_runner_experiment` by default.
 
 ### 2. [EnergiBridge](https://github.com/tdurieux/EnergiBridge)
 Energibridge is a cross-platform energy measurement utility that provides support for Linux, Windows, and MacOS, as well as Intel, AMD, and Apple ARM CPU architectures.
