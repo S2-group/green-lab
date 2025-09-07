@@ -24,10 +24,6 @@ Energibridge is a cross-platform energy measurement utility that provides suppor
 
 **Step 2:** Check if EnergiBridge is installed using `energibridge -h`
 
-**Step 3:** Track energy consumption of your first program 
-```
-energibridge --summary -o test.csv sleep 5
-```
 
 ## Troubleshooting
 
