@@ -8,7 +8,7 @@ the following command:
 energibridge --summary -o test.csv sleep 5
 ```
 
-We will measure the total CPU enery and the total memory used of 5 seconds. Example Output in terminal:
+We will measure the total CPU energy and the total memory used of 5 seconds. Example Output in terminal:
 ```
 Energy consumption in joules: 253.86045820617682 for 5.1230927 sec of execution.
 ```
