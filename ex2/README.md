@@ -1,4 +1,4 @@
-# Getting to know [EnergiBridge](https://github.com/tdurieux/EnergiBridge)
+# EX 2- Getting to know [EnergiBridge](https://github.com/tdurieux/EnergiBridge)
 
 ## Exercise 
 For now we're going to stick with a simple experiment with one single factor and one single level. Later on 
