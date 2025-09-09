@@ -1,5 +1,5 @@
 # GreenLab-Lab1-2025
-INTRODUCTION
+This repository contains a set of exercises for the GreenLab Lab 1 of 2025. The exercises are designed to help students learn about ExperimentRunner and EnergieBridge using a series of hands-on tasks.
 
 ## Exercises
 **Ex 1 - Setup of Experiment Runner & EnergiBridge**
