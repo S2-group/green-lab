@@ -1,7 +1,7 @@
 {
   "type": "native",
   "devices": {
-    "1-Plus-Nord": {}
+    "my-device": {}
   },
   "repetitions": 1,
   "autostart_subject": false,
