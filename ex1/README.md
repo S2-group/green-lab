@@ -18,7 +18,7 @@ python experiment-runner/ examples/hello-world/RunnerConfig.py
 The results are generated in the `examples/hello-world/experiments` folder. It should be named as `new_runner_experiment` by default.
 
 ### 2. [EnergiBridge](https://github.com/tdurieux/EnergiBridge)
-Energibridge is a cross-platform energy measurement utility that provides support for Linux, Windows, and MacOS, as well as Intel, AMD, and Apple ARM CPU architectures.
+Energibridge is a cross-platform energy measurement utility that provides support for Linux, Windows, and MacOS, as well as Intel, AMD, and Apple ARM CPU architectures. This tool is designed to collect resource usage data for a command to execute and to output the data in a CSV format.
 
 **Step 1:** Follow the installation instructions for your platform from the [EnergiBrigde repo](https://github.com/tdurieux/EnergiBridge?tab=readme-ov-file#install).
 
