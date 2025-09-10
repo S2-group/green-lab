@@ -11,4 +11,4 @@ This exercise introduces the basic functionalities and provides an overview of t
 **Ex 3 - Know about RuntableModel**
 This exercise integrates the ExperimentRunner with the EnergieBridge, so you can use them together, running experiments and collect data.
 
-**Add Hook Description**
+
