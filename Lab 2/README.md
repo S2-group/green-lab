@@ -19,14 +19,14 @@ Installing these dependencies can differ between operating systems, however thes
 # EX 1 - Setting up a Device or Emulator
 For this warm up exercise you will finalize your installation and configuration of android-runner by connecting either your own device, or an emulator if you don't have an android.
 
-## Setting up a physical device:
+## Setting up a physical device
 - [Enable developer mode](https://developer.android.com/studio/debug/dev-options) on the device, as well as debug over usb functionality.
 - Connect it to your computer, and make sure the device is on and unlocked.
 - Use `adb devices` to show the id of your connected device, which is needed to configure android-runner.
 
 Now everything is setup, and you should be able to run commands on your device using `adb shell`. Test this out with any host of linux commands you should be familiar with, for example: `adb shell ls`.
 
-## Setting up an emulator:
+## Setting up an emulator
 - Use `sdkmanager --list` to display available kits, we want to select an entry with tagged with 'system-images'.
 - Once you have a system image selected, install it as follows: `sdkmanager "system-images;android-34;google_apis;x86_64"`
 - And lastly, create the virtual device with `avdmanager create avd -n test -k "system-images;android-34;google_apis;x86_64"`
@@ -56,8 +56,10 @@ There are many targets to choose from, you might already have some installed!
 - Games 
 - Different device configurations (power saving mode ect.), with some workload 
 
-## Installing the app
-To install your desired app on a physical device, simply use the app store. If you are emulating, you will have to download the package as an apk onto your host system first. Sites like [apkpure.com](https://apkpure.com/) provide a wide selection of android apks, including versions for older android machines. 
+## Installing apps
+To install your desired app on a physical device, simply use the app store. 
+
+If you are emulating, you will have to download the package as an apk onto your host system first. Sites like [apkpure.com](https://apkpure.com/) provide a wide selection of android apks, including versions for older android machines. 
 
 ⚠️ Note: We do not recommend installing apps like this on your personal devices, for security reasons.
 
