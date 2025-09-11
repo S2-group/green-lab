@@ -109,7 +109,7 @@ Many android apps can take a data_uri argument which allows you to specify somet
 # EX 3 - Using Profilers
 In this last exercise you will implement a different profiler, or parameters for perfetto. Make sure to configure your target workload to run long enough to be properly measured, adding a sleep into the code and interacting with the device yourself is fine for this lab, and complex interactions like games.
 
-## Changing perfetto parameters
+## Working with Perfetto
 Perfetto is the default tool for android system tracing since android 9. Its a powerful tool for collecting metrics, nd supports a wide range of different data sources. The example experiments uses the `android.power` and `linux.sys_stats` sources, but many more are available. Perfetto will only measure the stats that you tell it to. You can read more about available sources and stats [here](https://perfetto.dev/docs/concepts/config) (under Android Data Sources in the sidebar). The **perfetto_config.pbtx** in the example experiment can be used as a starting point.
 
 A full definition for the perfetto pbtx file can be found [here](https://perfetto.dev/docs/reference/trace-config-proto), use this when you want to configure your new data sources or modify existing ones.
