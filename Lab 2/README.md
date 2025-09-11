@@ -6,8 +6,8 @@ We provide an example experiment config that will be discussed during the lab. C
 ### Follow the instructions for setting up android-runner
 - Clone the [android-runner](https://github.com/S2-group/android-runner) repository
 - Install python & java dependencies
-- Install adb (android debug bridge)
-- Install sdkmanager (android software development kit)
+- Install [adb](https://developer.android.com/tools/adb) (android debug bridge)
+- Install [sdkmanager](https://developer.android.com/tools/sdkmanager) (android software development kit)
 - For more in-depth instructions refer to the [android-runner wiki](https://github.com/S2-group/android-runner/wiki/Setup)
 
 ### Dependencies for emulation
