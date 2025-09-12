@@ -55,7 +55,9 @@ The `RunTableModel` specifies:
 * Any **excluded combinations** of treatments
 * **Data columns** to store results
 
-The definition happens in the `create_run_table_model()` function.
+You must define all of these parameters through the `create_run_table_model()` function as seen in the example that follows.
+
+## Examples
 
 ### Example 1: Defining the Run Table
 
@@ -113,7 +115,10 @@ def populate_run_data(self, context: RunnerContext) -> Optional[Dict[str, Any]]:
     }
 ```
 
-The final `run_table.csv` combines all repetitions and aggregates results from each `energibridge.csv`. The computation logic follows what’s defined in `populate_run_data()`.
+The final `run_table.csv` stores the desired experimental values for each run based on the data processing that is defined in your `populate_run_data()` function.
+
+⚠️ **WARNING:** *The column related to energy (i.e. `PACKAGE_ENERGY(J)`) is system specific. For example, on Apple M chips, the output of energibridge will be `SYSTEM_POWER (Watts)` therefore **we strongly suggest that you run energibridge once and check the data columns that it outputs for your machine** and then adjust your `populate_run_data()` output accordingly.*
+
 
 ## Run it yourself
 

@@ -2,7 +2,9 @@
 
 In this exercise, we will start with a simple experiment using **one factor** and **one level**. Later on, we will explore how to run more complex experiments.
 
-The goal here is to demonstrate how `EnergiBridge` can act as a **profiler** within the `experiment-runner` framework. For now, we just want to run a single command and observe the results.
+The goal here is to demonstrate how `EnergiBridge` can act as a **profiler** within the `experiment-runner` framework. 
+
+For now, we just want to run a single command and observe the results.
 
 ## Step 1: Run a Basic Command
 
@@ -14,13 +16,13 @@ energibridge --summary -o test.csv sleep 5
 
 This will:
 
-* Run the command `sleep 5` for 5 seconds
+* Run the command `sleep` for 5 seconds
 * Record resource usage data
 * Save results in `test.csv`
 
 ## Step 2: Observe Terminal Output
 
-You should see a message similar to:
+When the process finishes, you should see a message similar to:
 
 ```bash
 Energy consumption in joules: 253.86045820617682 for 5.1230927 sec of execution.
