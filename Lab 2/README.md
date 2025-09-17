@@ -28,8 +28,8 @@ Now everything is setup, and you should be able to run commands on your device u
 
 ## Setting up an emulator
 - Use `sdkmanager --list` to display available kits, we want to select an entry with tagged with 'system-images'.
-- Once you have a system image selected, install it as follows: `sdkmanager "system-images;android-34;google_apis;x86_64"`
-- And lastly, create the virtual device with `avdmanager create avd -n test -k "system-images;android-34;google_apis;x86_64"`
+- Once you have a system image selected, install it as follows: `sdkmanager "system-images;android-34;google_apis;x86_64"`.
+- And lastly, create the virtual device using the installed system image with `avdmanager create avd -n test -k "system-images;android-34;google_apis;x86_64"`, it will generate a virtual device called `test`.
 
 Now you should have a avd created! To verify this we can use the `avdmanager list avd` command, you should see something like below:
 
@@ -64,7 +64,7 @@ If you are emulating, you will have to download the package as an apk onto your 
 ⚠️ Note: We do not recommend installing apps like this on your personal devices, for security reasons.
 
 ## Starting your app via the command line
-Once you have your target selected and installed, we want to determine how to launch this application. For this you need the application id, we can list all the installed packages using the command: `adb shell pm list packages`. You should get a long list of application ids as follows:
+Once you have your target selected and installed, we want to determine how to launch this application. For this you need the application id, we can list all the installed packages using the command: `adb shell pm list packages`. You should get a long list of application ids (i.e. `com.android.se`) as follows:
 
 ```
 ...
@@ -75,9 +75,15 @@ package:com.android.messaging
 ...
 ```
 
-The next step is starting the desired application, for this we use the android utility `am` which lets us start an application using androids intent system. This is a form of IPC that allows apps to request actions from each other.
+The next step is starting the desired application. For this, we use the android utility `am`(Activity Manager), which lets us start an application using androids intent system. 
+Intent is a form of IPC that allows apps to request actions from each other.
 
-To get the default activity for an app we can use the following command: `adb shell cmd package resolve-activity --brief <app id>`. This should provide something similar to the following output.
+To get the default activity for an app we can use the following command: 
+```
+adb shell cmd package resolve-activity --brief -a android.intent.action.MAIN -c android.intent.category.LAUNCHER <app id>
+```
+`<app id>` should be replaced with available application id in format like `com.android.chrome`.
+This should provide something similar to the following output.
 
 ```
 priority=0 preferredOrder=0 match=0x108000 specificIndex=-1 isDefault=true
