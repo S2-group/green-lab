@@ -2,22 +2,24 @@
 
 ## How to install android runner
 
-***Fork and Git Clone***
+**Fork and Git Clone**
 
-- 1. Click on the Fork icon in the top right hand corner once you're logged into Github.
-- 2. Once it finishes loading, click on the green Code button. Run
+1. Click on the Fork icon in the top right hand corner once you're logged into Github.
+  
+2. Once it finishes loading, click on the green Code button. Run
   ```
   git clone git@github.com:[your_username]/android-runner.git
   ```
-- 3. Type `cd android-runner` to enter the framework's main directory.
+
 
 
 ## Set up environment and dependencies
 
 **Set up virtual environment**
 
-Create a virtual environment: `python3 -m venv /path/`
-This can be anywhere on your machine. Activate it with `source /path/bin/activate`
+1. If you do not have, create a virtual environment: `python3 -m venv /path/`. This can be anywhere on your machine.
+
+2. Activate it with `source /path/bin/activate`
 
 **Install dependencies (MacOS)**
 
@@ -44,6 +46,7 @@ Option 1: (for Emulation) Install OpenJDK 8, Android Studio and Platform Tools:
 brew install libxml2
 ```
 
+
 4. Check Java version:
    java -version, if you are running a different version than 1.8/8, `brew install jenv`
 - Run `/usr/libexec/java_home -V` to see the location of your Java environments
@@ -67,3 +70,36 @@ emulator-5554 device
 ```
 4. Change the `devices` settings in `config.json` file using the displayed device identifier (with mapping to key-value pairs in `devices.json`).
 
+
+- 3. Type `cd android-runner` to enter the framework's main directory.
+ 
+
+# Troubleshooting
+1. Emulator Not Found
+```
+command not found: emulator
+```
+This error is because `emulator` is not in the current system environment.
+
+**For Windows**
+
+Temporary addition (valid for current session only)
+```
+set PATH=%PATH%;C:\Users\[username]\AppData\Local\Android\Sdk\emulator
+```
+
+Permanent addition: Right-click "This PC" → Properties → Advanced system settings → Environment Variables. Find Path in system variables, edit, and add emulator path
+
+**For MacOS/Linux**
+
+Temporary addition (valid for current session only)
+```
+export PATH=$PATH:~/Library/Android/sdk/emulator
+```
+
+Permanently add to the terminal (`bashrc` or `zshrc`):
+
+``` 
+echo 'export PATH=$PATH:~/Library/Android/sdk/emulator' >> ~/.bashrc
+source ~/.bashrc`
+```
