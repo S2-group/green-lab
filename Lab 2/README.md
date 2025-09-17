@@ -96,6 +96,7 @@ We can then use this activity to start the app instance, if we wanted to open th
 adb shell am start -n com.android.messaging/.ui.conversationlist.ConversationListActivity
 ```
 
+If came across `Error Type 3: Activity class does not exist`, try `com.google.android.apps.messaging` instead, this is because the messaging app installed on the virtual device is Google Messages.
 ## Starting apps through android-runner
 Android runner defines an interface to make programatically interacting with adb a bit easier. Each python script from the Scripts directory is executed at a different stage of the experiment, and they each pass a Device object for you to use. Take a quick look through the definition of the Device class, many helpful functions are defined like `pull` and `push` to move files between your computer and device. The functions `current_activity`, `launch_package`, and `launch_activity` allow interaction with applications.
 
