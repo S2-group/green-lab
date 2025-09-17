@@ -106,6 +106,37 @@ device.launch_activity("org.videolan.vlc",
 
 Many android apps can take a data_uri argument which allows you to specify something for the app to interact with, such as a web address for a browser.
 
+## Callbacks in android-runner
+Android runner uses a callback system to structure experiments. This means that the experiment is broken down into a set of events. Each event calls a function you define in the scripts directory. Its not necessary to define all callbacks. Only the ones that you need are required to be defined, and referenced within your `config.json` file.
+
+The following callbacks are available:
+- `before_experiment` is run once **before any** experiments are executed. This can be used to setup the environment on the device.
+- `before_run` is executed once **for each run** in the experiment. This can be used to setup any dependencies, or start applications manually.
+- `after_launch` is executed once **for each run**, after the application has been launched.
+- `interaction` is executed once **while each run** in the experiment is ongoing. Leave this empty if no user interaction is needed.
+- `before_close` is executed once **for each run** before the application being tested is closed. This can be used to manually close applications, or remove dependencies.
+- `after_run` is executed once **after each run** in the experiment has been completed.
+- `after_experiment` is executed once **after all runs** in the experiment have been completed. This can be used to break down the environment, and uninstall any applications no longer needed.
+
+For each script you have defined, a corresponding entry can be made in your `config.json`. For example:
+```json
+"scripts": {
+    "before_experiment": "Scripts/before_experiment.py",
+    "before_run": "Scripts/before_run.py",
+    "after_launch": "Scripts/after_launch.py",
+    "interaction": [
+      {
+        "type": "python3",
+        "path": "Scripts/interaction.py",
+        "timeout": 500,
+        "logcat_regex": "some keyword"
+      }
+    ],
+    "before_close": "Scripts/before_close.py",
+    "after_run": "Scripts/after_run.py",
+    "after_experiment": "Scripts/after_experiment.py"
+  },
+```
 # EX 3 - Using Profilers
 In this last exercise you will implement a different profiler, or parameters for perfetto. Make sure to configure your target workload to run long enough to be properly measured, adding a sleep into the code and interacting with the device yourself is fine for this lab, and complex interactions like games.
 
