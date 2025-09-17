@@ -95,7 +95,7 @@ Android runner defines an interface to make programatically interacting with adb
 
 Any apps you specify in the 'apps' section of the **config.json** will be treated as test cases, and auto started at the same point as 'before_run'. You can then interact with the app yourself, or define actions using the android command line tool input. For instance `device.shell("input tap 100 200")`, which taps the screen at x=100, y=200.
 
-Android also has tools for generating inputs randomly. The `monkey` tool is the standard for this, it generates any number of random inputs. These inputs can be scoped to a single application if desired. For instance `monkey -p <package-id> <num-events>`. The monkey tool is not to be confused with `monkeyrunner` which is a deprecated tool that was used to generate spesefic inputs and benchmark applications.
+Android also has tools for generating inputs randomly. The `monkey` tool is the standard for this, it generates any number of random inputs. These inputs can be scoped to a single application if desired. For instance `monkey -p <package-id> <num-events>`. The monkey tool is not to be confused with `monkeyrunner` which is a deprecated tool that was used to generate specific inputs and benchmark applications.
 
 If you want to start the app yourself, you can disable auto start by adding `"autostart_subject": false` to your **config.json** file. Then you are responsible for starting the application yourself. In the example experiment the VLC app is started as follows:
 
