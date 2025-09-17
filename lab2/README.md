@@ -9,26 +9,43 @@
   ```
   git clone git@github.com:[your_username]/android-runner.git
   ```
-- 3. Type `cd android-runner` to enter the framework's main directory. 
+- 3. Type `cd android-runner` to enter the framework's main directory.
+
+
 ## Set up environment and dependencies
-***Set up virtual environment***
+
+**Set up virtual environment**
 
 Create a virtual environment: `python3 -m venv /path/`
 This can be anywhere on your machine. Activate it with `source /path/bin/activate`
 
-***Install dependencies (MacOS)***
+**Install dependencies (MacOS)**
 
-- Make sure you have [Homebrew](https://brew.sh/) installed
-- Install OpenJDK 8, Android SDK and Platform Tools:
-  ```
-  brew install --cask temurin@8 android-sdk android-platform-tools
-  ```
+1. Make sure you have [Homebrew](https://brew.sh/) installed
+```
+brew --version
+```
   
-*If you meet the notice of outdated formulae, can `brew update && brew upgrade && brew cleanup` to upgrade all installed packages, and clean outdated ones.*
+2. Install OpenJDK8, sdk, and platform tools
+
+Option 1: (for Emulation) Install OpenJDK 8, Android Studio and Platform Tools:
+  ```
+  brew install --cask temurin@8 android-studio android-platform-tools
+  ```
+  Option 2: (for Android Phone) Install OpenJDK 8, CommandLineTools and Platform Tools:
+  ```
+  brew install --cask temurin@8 android-commandlinetools android-platform-tools
+  ```
+  *If you meet the notice of outdated formulae, can `brew update && brew upgrade && brew cleanup` to upgrade all installed packages, and clean outdated ones.*
 
 
-- Install libxml2: `brew install libxml2`
-- Check Java version: java -version, if you are running a different version than 1.8/8, `brew install jenv`
+3. Install libxml2:
+```
+brew install libxml2
+```
+
+4. Check Java version:
+   java -version, if you are running a different version than 1.8/8, `brew install jenv`
 - Run `/usr/libexec/java_home -V` to see the location of your Java environments
 - Copy the location of your AdoptOpenJDK8 environment:
   ```
