@@ -1,0 +1,31 @@
+{
+  "type": "native",
+  "devices": {
+    "my-device": {}
+  },
+  "repetitions": 1,
+  "autostart_subject": false,
+  "duration": 6000,
+  "apps": [
+    "org.videolan.vlc"
+  ],
+  "experiment_args": [480, 720, 1080],
+  "profilers": {
+    "perfetto": {
+        "config_file" : "examples/lab2_example/perfetto_config.pbtx",
+        "subject_aggregation" : "aggregate_scripts/aggregate_subject.py",
+	    "config_file_format" : "text"
+    } 
+  },
+  "scripts": {
+    "before_experiment": "Scripts/before_experiment.py",
+    "before_run": "Scripts/before_run.py",
+    "after_launch": "Scripts/after_launch.py",
+    "interaction": "Scripts/interaction.py",
+    "before_close": "Scripts/before_close.py",
+    "after_run": "Scripts/after_run.py",
+    "after_experiment": "Scripts/after_experiment.py"
+  },
+  "time_between_run": 500
+}
+
