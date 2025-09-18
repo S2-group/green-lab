@@ -5,7 +5,7 @@ We provide an example experiment config that will be discussed during the lab. C
 
 ### Follow the instructions for setting up android-runner
 - Clone the [android-runner](https://github.com/S2-group/android-runner) repository
-- Install python & java dependencies
+- Install python & java dependencies, [linux](https://github.com/S2-group/android-runner/wiki/Setup#setting-up-environment-and-dependencies), [macOS](https://github.com/DaydreamCreator/green-lab-2025/blob/main/lab2/README.md)
 - Install [adb](https://developer.android.com/tools/adb) (android debug bridge)
 - Install [sdkmanager](https://developer.android.com/tools/sdkmanager) (android software development kit)
 - For more in-depth instructions refer to the [android-runner wiki](https://github.com/S2-group/android-runner/wiki/Setup)
@@ -96,7 +96,7 @@ We can then use this activity to start the app instance, if we wanted to open th
 adb shell am start -n com.android.messaging/.ui.conversationlist.ConversationListActivity
 ```
 
-If came across `Error Type 3: Activity class does not exist`, try `com.google.android.apps.messaging` instead, this is because the messaging app installed on the virtual device is Google Messages.
+If came across `Error Type 3: Activity class does not exist`, try `adb shell am start -n com.google.android.apps.messaging/.ui.ConversationListActivity` instead, this is because the messaging app installed on the virtual device is Google Messages.
 ## Starting apps through android-runner
 Android runner defines an interface to make programatically interacting with adb a bit easier. Each python script from the Scripts directory is executed at a different stage of the experiment, and they each pass a Device object for you to use. Take a quick look through the definition of the Device class, many helpful functions are defined like `pull` and `push` to move files between your computer and device. The functions `current_activity`, `launch_package`, and `launch_activity` allow interaction with applications.
 
@@ -169,6 +169,10 @@ for perfetto_trace_file in os.listdir(path):
     data.to_csv(os.path.join(path, f"{perfetto_trace_file.split(".")[0]}_aggregated.csv"))
 ```
 
+**Run the Perfetto Example (at root directory)**:
+```
+python3 android-runner android-runner/examples/perfetto/config.json
+```
 ## Selecting a new profiler
 Android-runner also provides a host of other profilers if perfetto does not have the stats you want, or if you just want to experiment. To specify a profiler, change the "profilers" section of the **config.json** file to include the profiler you want, and any other relevant configuration like the sample interval. The android-runner repository has many more extensive examples.
 
