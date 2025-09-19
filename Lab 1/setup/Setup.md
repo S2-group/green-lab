@@ -29,7 +29,7 @@ Experiment Runner is a framework to automatically execute measurement-based expe
    * Test the setup by running the Hello World example:
 
      ```bash
-     python experiment-runner/examples/hello-world/RunnerConfig.py
+     python experiment-runner/ examples/hello-world/RunnerConfig.py
      ```
    * Results will be stored in:
 
