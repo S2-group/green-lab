@@ -1,0 +1,194 @@
+# Lab 3: R with Positron (Exercises)
+
+## Setup
+
+1.	Open Positron and create a new Project for this lab.
+2.	Install the required packages if they are not yet installed: `tidyverse`, `ggplot2`, `bestNormalize`, `ARTool`, `lmerTest`, and `xtable`.
+3.	Load the packages into the R session with the `library()` function.
+4.	Make sure the dataset `Run_Table_TPCH.csv` is located in the directory `data/`.
+
+```{r, results='hide', message=FALSE}
+install.packages(c("tidyverse", "ggplot2", "bestNormalize", "ARTool", "lmerTest", "xtable"))
+library(tidyverse)
+library(ggplot2)
+library(bestNormalize)
+library(ARTool)
+library(lmerTest)
+library(xtable)
+```
+
+## Section 1: Data Loading and Inspection
+
+### 1.1
+1.	Load the dataset `Run_Table_TPCH.csv` into R.
+2.	Keep only the four required columns: *library*, *dataframe_size*, *trial*, and *energy_usage*.
+3.	Convert *library*, *dataframe_size*, and *trial* into factor variables.
+4.	Inspect the structure of the dataset with functions such as `glimpse()`, `summary()`, and `head()` to confirm that the data is properly loaded and formatted.
+
+```{r}
+# setwd("path/to/GREEN-LAB/Lab 3")
+dat_data <- read.csv("Lab 3/data/Run_Table_TPCH.csv") %>%
+  select(library, dataframe_size, trial, energy_usage, execution_time, cpu_usage, memory_usage) %>%
+  mutate(
+    library = factor(library),
+    dataframe_size = factor(dataframe_size),
+    trial = factor(trial)
+  )
+
+glimpse(dat_data)
+summary(dat_data)
+head(dat_data)
+```
+
+## Section 2: Visual Exploration via Plotting
+1.	Create a histogram of *energy_usage* to inspect its overall distribution and assess whether it appears normal.
+2.	Create boxplots of *energy_usage* grouped by *library* and *dataframe_size* to compare distributions across experimental conditions.
+3.	Create scatterplots of *energy_usage* across trials. Assign different colors to the combinations of *library* and *dataframe_size* (i.e., the “experiments”), and include a legend to distinguish them.
+
+### 2.1
+
+```{r}
+# Histogram of overall energy usage
+
+
+# Histogram split by library
+
+```
+
+### 2.2
+
+```{r}
+
+```
+
+### 2.3
+
+```{r}
+
+```
+
+## Section 3: Data Normality and Normalization
+1.	For each combination of *library* and *dataframe_size*, run a Shapiro–Wilk normality test on *energy_usage*.
+2.	Normalize the *energy_usage* column using the `bestNormalize` package. Add the normalized values as a new column in the dataset.
+3.	Plot the normalized data to visually compare it with the original distribution.
+4.	Repeat the Shapiro–Wilk tests on the normalized values to check whether normality has improved.
+5.	Evaluate the results and decide whether parametric tests are suitable after normalization.
+
+### 3.1
+
+```{r}
+# Run Shapiro-Wilk for each group
+normality_results <- dat_data %>%
+  group_by(library, dataframe_size) %>%
+  summarise(
+    shapiro_p = shapiro.test(energy_usage)$p.value,
+    .groups = "drop"
+  )
+
+normality_results
+```
+
+Interpretation: if p < 0.05, reject normality (data is not normal).
+
+### 3.2
+
+```{r}
+
+```
+
+# 3.3
+
+```{r}
+# Histogram of normalized values
+
+
+# Shapiro-Wilk again for normalized values
+
+```
+
+### 3.4
+
+Text here
+
+## Section 4: (Non-)Parametric Tests
+1.  Use a non-parametric test `wilcox.test` (Wilcoxon’s test) to check whether energy usage is different between libraries for small dataframes.
+2.  Fit an `art()` model to observe influence of *library*, *dataframe_size* and its interactions with *energy_used*. Treat trial as a random effect for repeated measures experiment. What can you see? Validate your model with `summary(model)`.
+3.  Similarly to `art()`, run `lmer()` model to observe similar effects, except your target variable should be *norm_energy_usage*.
+4.  Check residuals for normality and assess the validity of the model.
+
+### 4.1
+
+```{r, results='hide', message=FALSE}
+
+```
+
+We shall use Wilcoxon test; it's non-parametric and we can't use a parametric test as our data is not normal.
+
+### 4.2
+
+```{r, results='hide', message=FALSE}
+
+```
+
+-   `anova(model)` shows us information about influence of each variable and their interactions.
+
+### 4.3
+
+```{r, results='hide', message=FALSE}
+
+```
+
+### 4.4
+
+```{r}
+qqnorm(resid(model))
+qqline(resid(model))
+shapiro.test(resid(model))
+```
+
+We can see residuals are not normal, which might be the result that our data doesn't meet the conditional normality assumption, even though it's distribution with no regard to factors looks normal.
+
+## Section 5: Summary Plots
+1.  Create a boxplot to visualize the distribution of *energy_usage* for each "experiment". Use `facet_wrap()` to adequately separate the experiments by library or dataframe size.
+2.  Label the x-axis as ”Dataframe Size” and the y-axis as ”Energy Usage”
+3.  Create a scatter plot (`geom_point()`) to show how energy_usage varies over trial. Assign a unique color to each ”experiment” and add a legend.
+4.  Using *faceting*, create a grid with 4 scatter plots (one per "experiment") showing how *energy_usage* correlates to *execution_time*, also including trend lines.
+
+### 5.1 & 5.2
+
+```{r}
+
+
+```
+
+### 5.3
+
+```{r}
+
+```
+
+### 5.4
+
+```{r}
+
+
+```
+
+## Section 6: Annotated Tables
+1.  Use `dplyr` functions to calculate the average *cpu_usage*, *memory_usage* and *energy_usage* for each "experiment".
+2.  Using the `xtable` package, format the summary table as LaTeX. You can copy the output for rendering in engines such as Overleaf.
+
+```{r}
+# Load required libraries
+library(xtable)
+library(dplyr)
+
+# Create summary statistics
+
+
+# Create and format the xtable
+
+
+# Print the table (you can adjust the type of output as needed)
+
+```
